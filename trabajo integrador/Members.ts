@@ -4,23 +4,23 @@ export abstract class Members implements Person{
     name:string;
     lastName:string;
     id:number;
-    birthDate:Date;
+    birthDate:string;
     numPhone:number;
     address:string;
     email:string;
-    numFile:number;
-    startDate:Date;
+    startDate:string;
+    numFile:number
     
-    constructor(name:string,lastName:string,id:number,birthDate:Date,numPhone:number,address:string,email:string,numFile:number,startDate:Date){
+    constructor(name:string,lastName:string,id:number,birthDate:string,numPhone:number,address:string,email:string,numFile:number){
         this.name=name;
         this.lastName=lastName;
         this.id=id;
-        this.birthDate=birthDate;
+        this.birthDate=new Date(birthDate).toLocaleDateString()
         this.numPhone=numPhone;
         this.address=address;
         this.email=email;
-        this.numFile=numFile;
-        this.startDate=startDate;
+        this.startDate=new Date().toLocaleDateString()
+        this.numFile=numFile
         
 
     }
