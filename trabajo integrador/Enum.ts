@@ -1,4 +1,4 @@
-export enum enumSubjects {
+export enum EnumSubjects {
     Matematicas = "Matematicas",
      Lengua = "Lengua", 
      Sociales = "Sociales", 

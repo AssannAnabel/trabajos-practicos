@@ -1,0 +1,31 @@
+[
+  {
+    "name": "ana",
+    "lastName": "assann",
+    "id": 31576362,
+    "birthDate": "10/4/1985",
+    "numPhone": 1156641816,
+    "address": "taglioretti 1072",
+    "email": "assannanabel@gmail.com",
+    "startDate": "11/4/2023",
+    "numFile": 2345,
+    "subjects": [
+      {
+        "name": "Matematica",
+        "grade": 6,
+        "teacher": "prof. Mat. Silvia Pesante"
+      },
+      {
+        "name": "lengua",
+        "grade": 7,
+        "teacher": "prof. leng. Miriam Moretti"
+      },
+      {
+        "name": "cs.Sociales",
+        "grade": 4,
+        "teacher": "prof. Cs.soc Carmen Iavagnilio"
+      }
+    ],
+    "average": 8
+  }
+]

@@ -3,36 +3,54 @@ import readLineSync from 'readline-sync'
 
 import { Student } from "./Student"
 import { Teacher } from "./Teacher"
-import { subject } from "./Subjects"
-import { enumSubjects } from "./Enum"
+import { Subject } from "./Subjects"
+import { EnumSubjects } from "./Enum"
 import { Grades } from "./Enum"
 
 export class SchoolManager{
+    constructor(){fs.writeFileSync('./students.json','[]','utf-8')}
+
     dataStudents() {return JSON.parse(fs.readFileSync('./students.json','utf-8'))}
     dataTeachers() {return JSON.parse(fs.readFileSync('./teachers.json','utf-8'))}
 
-setEnrolerStudents(){
+    setEnrollStudent(){
+        let name= readLineSync.question("Ingrese nombre del Alumno:-->").toLowerCase();
+        let lastName= readLineSync.question("Ingrese apellido del Alumno:-->").toLowerCase();
+        let id= Number (readLineSync.question("Ingrese DNI (sin punto) del Alumno:-->"));
+        let birthDate= readLineSync.question("Ingrese fecha de nacimiento del Alumno (ano-mes-dia):-->");
+        let numPhone=Number (readLineSync.question("Ingrese numero de telefono Alumno, Madre, Padre o Tutor:-->"));
+        let address= readLineSync.question("Ingrese direccion del Alumno:-->").toLowerCase();
+        let email= readLineSync.question("Ingrese email del Alumno, Madre, Padre, o Tutor:-->").toLowerCase();
+        let numFile=this.dataStudents().length+1;
+        
 
-    let name=readLineSync.question('Escriba el nombre del Alumno:--> ').toLowerCase();
-    let lastName=readLineSync.question('Escriba el apellido del Alumno:--> ');
-    let id=Number(readLineSync.question('Escriba el documento del Alumno:-->'));
-    let birthDate=readLineSync.question('Escriba fecha de nacimiento año/mes/dia:-->');
-    let numPhone=Number(readLineSync.question('Escriba el numero del alumno madre/padre/tutor:--> '));
-    let address=readLineSync.question('Escriba la direccion del alumno:-->').toLowerCase()
-    let email=readLineSync.question('Escriba el mail del alumno/madre/padre/tutor').toLowerCase();
-    let numFile=Number(readLineSync.question('Escriba el numero del legajo'));
-    //let average=Number(readLineSync.question('ingrese la nota'));
-    const materias=["matematica","lengua","historia","literatura"];
-        let materiasAnotadas:string[] = [];
-        for (let i = 0; i < materias.length; i++) {
-            const materia = materias[i];
-        const anotarse = readLineSync.question(`¿Desea anotarse en ${materia}? (s/n) `);
-            if (anotarse.toLowerCase() === 's') {materiasAnotadas.push(materia)
-            }
-                }
-let estudiante=new Student(name,lastName,id,birthDate,numPhone,address,email,numFile);
-let estudi=[...this.dataStudents(),estudiante]
-fs.writeFileSync('./students',JSON.stringify(estudi,null,2))
+        let newStudent= new Student (name, lastName, id, birthDate,numPhone, address, email, numFile,[]) ;
+    
+        let amountSubject= Number(readLineSync.question("¿A cuantas meterias se quiere anotar?"))
+            for(let i=1; i<= amountSubject; i++){
+            let listSubjects= ["Matematica", "Lengua","Cs.Sociales", "Cs.Naturales","Ingles","Ed.Fisica"]
+            let addSubject= readLineSync.keyInSelect(listSubjects, "Selecione Materia")
+            let subject= listSubjects[addSubject];
+            let listGrade=["1","2","3","4","5","6","7","8","9","10"];
+            let addGrade= readLineSync.keyInSelect(listGrade, "Selecione nota");
+            let grade= addGrade;
+            let listTeacher=["Prof. Mat. Miriam Di Carlo","Prog. Leng. Maria Manna ", "Prof. Soc. Patricia Rojas","Prof. Nat. Claudia Perez", "Prof. Ing. Julieta Kesler", "Prof. Edu. Gustavo Poffer"];
+            let addTeacher= readLineSync.keyInSelect(listTeacher, "Selecione Profesor");      
+            let teacher= listTeacher[addTeacher]
+            newStudent.addSubjects(subject,grade,teacher)
+       
+  }
+ newStudent.calculateAverage();
+    let students= [...this.dataStudents(), newStudent];
+    fs.writeFileSync("./students.json", JSON.stringify(students, null, 2))
+
 }
 }
 
+
+let mm = new SchoolManager;
+
+mm.setEnrollStudent()
+
+let reg=new SchoolManager
+reg.setEnrollStudent()
