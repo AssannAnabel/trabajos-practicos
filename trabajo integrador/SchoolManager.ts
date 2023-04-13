@@ -8,7 +8,10 @@ import { EnumSubjects } from "./Enum"
 import { Grades } from "./Enum"
 
 export class SchoolManager{
-    constructor(){fs.writeFileSync('./students.json','[]','utf-8')}
+    constructor(){
+        fs.writeFileSync('./students.json','[]','utf-8')
+        fs.writeFileSync('./teachers.json','[]','utf-8')
+}
 
     dataStudents() {return JSON.parse(fs.readFileSync('./students.json','utf-8'))}
     dataTeachers() {return JSON.parse(fs.readFileSync('./teachers.json','utf-8'))}

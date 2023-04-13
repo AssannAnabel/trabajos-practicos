@@ -1,5 +1,5 @@
 export enum EnumSubjects {
-    Matematicas = "Matematicas",
+    Matematica = "Matematica",
      Lengua = "Lengua", 
      Sociales = "Sociales", 
      Naturales = "Naturales", 

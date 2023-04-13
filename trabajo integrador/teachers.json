@@ -1,0 +1,38 @@
+[
+  {
+    "name": "maria",
+    "lastName": "carloti",
+    "id": 27902790,
+    "birthDate": "12/5/1980",
+    "numPhone": 2281456723,
+    "address": "san martin 567",
+    "email": "mary@gmail.com",
+    "numFile": 1,
+    "startDate": "12/4/2023",
+    "subject": "Lengua"
+  },
+  {
+    "name": "carlos",
+    "lastName": "perez",
+    "id": 28765345,
+    "birthDate": "12/11/1981",
+    "numPhone": 22673456,
+    "address": "bolivia 123",
+    "email": "carlos@gmail.com",
+    "numFile": 2,
+    "startDate": "12/4/2023",
+    "subject": "Sociales"
+  },
+  {
+    "name": "silvina",
+    "lastName": "pacheco",
+    "id": 23456784,
+    "birthDate": "3/12/1968",
+    "numPhone": 22673456,
+    "address": "silvipach@gmail.com",
+    "email": "silvipach@gmail.com",
+    "numFile": 3,
+    "startDate": "12/4/2023",
+    "subject": "Naturales"
+  }
+]
